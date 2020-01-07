@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{h1Text}}</h1>
+        <p>{{pText}}</p>
+
+
+        <input type="text" @keypress.enter="sayiEkle($event)">
+        <button @click="arttir()">Arttır</button>
+        <a :href="link" v-text="LinkText"></a>
+
+        <p v-text="sayi"></p>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#app",
+        data:{            
+            h1Text:"TITLE",
+            pText: "Lorem Ipsum Dolor Sit Amet",
+            sayi: 0,
+            link: "https://www.linkedin.com",
+            LinkText: "Linkedin"
+        },
+        methods: {
+            arttir(){
+              this.sayi++
+            },
+            sayiEkle(e){
+                this.sayi+=parseInt(e.target.value)
+            }
+
+        },
+    })
+    </script>
+</body>
+</html>

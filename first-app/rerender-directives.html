@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #666;
+        background-color: darkred;
+        margin-bottom: 10px;
+        display: inline-block;
+      }
+      .blue {
+        background-color: blue;
+      }
+
+      .green {
+        background-color: green;
+      }
+      .black {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <p v-once>{{title}}</p>
+      <!--Re Render işlemini engelleyip ilk veride kalmasını sağlar-->
+      <p>{{hello()}}</p>
+      <p>{{parag}}</p>
+      <p v-html="link"></p>
+      <!-- kullanılan html tagını direkt basmaya yarar-->
+      <p @mousemove="updateCoords('Deneme',$event)">
+        Mouse Koordinatları : {{x}},{{y}}
+        <span @mousemove.stop>BURDA DUR</span>
+      </p>
+
+      <button @click="btnClick('DENEME',$event)">CLICK ME</button>
+
+      <input
+        type="text"
+        @keypress.enter="btnClick('DDD',$event)"
+        v-model="parag"
+      />
+      <!-- Enter tuşuyla işlem yaptırma VE TWO WAY DATA BIND v-model direktifi hem vue hem html tarafını birleştirir -->
+
+      <input @keypress.space="increase" :value="counter" />
+
+      <div
+        @click="showBlue = !showBlue"
+        class="box"
+        :class="{'blue' : !showBlue}"
+      ></div>
+      <div class="box" :class="classNameComp"></div>
+      <div class="box" :style="[customStyle, {width: height + 'px'}]"></div>
+      <input type="text" v-model="color" />
+      <input type="text" v-model="height" />
+      
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          title: "Merhaba Dünya",
+          link: '<a href="http://google.com" target="_blank">Google</a>',
+          parag: "Hahaha",
+          counter: 0,
+          x: 0,
+          y: 0,
+          className: "blue",
+          showBlue: false,
+          color: "blue",
+          height: 100          
+        },
+        methods: {
+          hello() {
+            return (this.title = "Merhaba !!!");
+          },
+          updateCoords(d, e) {
+            this.parag = d;
+            this.x = e.clientX;
+            this.y = e.clientY;
+          },
+          btnClick(de, e) {
+            this.parag = de + e.target.value;
+          },
+          increase() {
+            this.counter += parseInt(1);
+            return this.counter % 20 == 0
+              ? (this.counter += 100)
+              : this.counter;
+          }
+        },
+        computed: {
+          //Bu yapı sadece içerdiği verilerin değiştiği durumlarda tetiklenir
+          output() {
+            return this.counter;
+          },
+          classNameComp() {
+            return {
+              blue: this.showBlue
+            };
+          },
+          customStyle() {
+            return {
+              backgroundColor: this.color,
+              height: this.height + "px"              
+            };
+          }
+        },
+        watch: {}
+      });
+    </script>
+  </body>
+</html>

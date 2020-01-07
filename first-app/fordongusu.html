@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="(item,index) in products">{{item}}--{{index}}</li>
+      </ul>
+
+      <!-- Template elemeneti VUE tarafından render edilmediğinden içerisine yazılan kodlar tema yapısını bozmaz -->
+
+      <!-- v-for ="(value,key,index) in blahblah" yapısında kullanılabilir-->
+
+      <!-- v-for ="iteration in 10" for döngüsü i den 10 a kadar-->
+      <template>
+        <table>
+          <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Job</th>
+          </thead>
+          <tbody>
+            <tr v-for="(personel,i) in personels">
+              <td>{{i+1}}</td>
+              <td>{{personel.name}}</td>
+              <td>{{personel.surname}}</td>
+              <td>{{personel.job}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </template>
+
+      <hr />
+      <h4>FOR DÖNGÜSÜ</h4>
+      <span v-for="iteration in 10">{{iteration}}</span>
+
+      <hr />
+      <ul>
+        <li v-for="(item,index) in products" :key="item">{{item}}--{{index}}</li>
+      </ul>
+      <button @click="products.push('Kulaklık')">EKLE</button>
+
+
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          products: ["Fare", "Klavye", "Moniter", "SSS"],
+          personels: [
+            {
+              name: "Süleyman",
+              surname: "Babaoğlu",
+              job: "Yazılım Geliştirici"
+            },
+            { name: "Ahmet", surname: "MMMMM", job: "TTTTT" },
+            { name: "Mehmet", surname: "FFFFFF", job: "SSSSSSS" },
+            { name: "Utku", surname: "RRRRRRR", job: "KKKKKKKK" }
+          ]
+        }
+      });
+    </script>
+  </body>
+</html>

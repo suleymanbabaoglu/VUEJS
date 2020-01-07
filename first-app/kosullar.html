@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <body>
+    <div id="app">
+      <button @click="showBox = !showBox">DEĞİŞTİR</button>
+      <p v-if="showBox">SSSSSSSSSS</p>
+      <p v-else>VVVVVV</p>
+
+      <hr />
+      <input type="text" v-model="sayi" />
+      <p v-if="sayi > 10">Sayi 10 dan Büyük</p>
+      <p v-else-if="sayi < 10">Sayi 10 dan Küçük</p>
+      <p v-else="sayi = 10">Sayi 10 a eşittir</p>
+
+      <hr />
+
+      <!--V-IF ve V-SHOW Arasındaki En Temel Fark V-If komutu çalıştığı anda şartı sağlamayan tagleri DOM dan siler. V-Show ise sadece gizleme işlemi yapar-->
+
+      <p v-show="showParagh">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
+        labore, ullam at quasi incidunt libero laborum, soluta a sunt, natus
+        unde minus. Assumenda nihil, eum quae quidem praesentium rem doloremque!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse illo
+        magnam non accusantium, atque impedit laudantium provident consequatur.
+        Molestias modi, fugiat doloremque est ad aut consequuntur et cum
+        voluptatum odio.
+      </p>
+
+      <button @click="showParagh=!showParagh">
+        {{showParagh ? "Gizle" : "Göster"}}
+      </button>
+
+      <hr />
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          showBox: false,
+          sayi: 0,
+          showParagh: false
+        },
+        computed: {}
+      });
+    </script>
+  </body>
+</html>
