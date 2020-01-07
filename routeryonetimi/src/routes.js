@@ -11,7 +11,7 @@ export const routes = [
             default: Home,
             'header-top': Header
         }
-    },
+    },// components içinde eğer isimlendirme varsa, bu işlem çağırıldığı yerde öncelikli çalışır. İsim ile çağırılmadığı takdirde default değer çalışır.
     {
         path: '/user', name: 'kullanicilar',
         components: {
@@ -22,5 +22,6 @@ export const routes = [
             {path: 'edit/:id', component: UserEdit, name: "userEdit"},
             {path: ':id', component: UserDetail},
         ]
-    }
+    },
+    {path: '*', redirect : '/'} // yukarıdaki adımları geçer ve karşılık gelen route bulunamazsa buraya düşecektir ve / route una yönlenecektir.
 ];
