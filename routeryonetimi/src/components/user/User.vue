@@ -26,7 +26,6 @@
             }
         }*/
         watch: {
-            // eslint-disable-next-line no-unused-vars
             /*"$route"(to) {
                 this.id = to.params.id;
             }*/

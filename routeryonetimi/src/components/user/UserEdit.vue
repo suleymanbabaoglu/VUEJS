@@ -1,13 +1,10 @@
 <template>
     <div>
         <h1>USER {{$route.params.id}} EDIT</h1>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet dolorem est eveniet explicabo fugiat, ipsam
-            iure libero nulla possimus quas sapiente tempora vitae voluptatem. Atque in libero nesciunt quos soluta!
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. At aut consectetur, deserunt error fugit ipsam
-            iusto minus odio recusandae rem, reprehenderit, ut voluptates. Asperiores, impedit iusto minima nulla
-            suscipit voluptatum.
-        </p>
+        <h4>NAME: {{$route.query.name}}</h4>
+        <h4>LASTNAME: {{$route.query.lastName}}</h4>
+        <h4>AGE: {{$route.query.age}}</h4>
+        <h4>LOCATION: {{$route.query.location}}</h4>
         <hr>
 
 

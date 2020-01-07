@@ -10,7 +10,9 @@
         </p>
         <hr>
 
-        <router-link tag="button" :to="{name: 'userEdit',params:{id: $route.params.id}}" class="btn btn-primary">User Edit</router-link>
+        <router-link tag="button" :to="{name: 'userEdit',params:{id: $route.params.id}, query:{name:'Suleyman', lastName: 'Babaoglu', age: '26', location: 'Bursa'}}" class="btn btn-primary">User
+            Edit
+        </router-link>
 
 
     </div>

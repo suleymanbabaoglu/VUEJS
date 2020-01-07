@@ -3,10 +3,9 @@
         <div class="row">
             <div class="col-md-12">
                 <br>
-               <app-header></app-header>
-                <hr>
-
+                <router-view name="header-top"></router-view>
                 <router-view></router-view>  <!--Routerdaki sayfaların buraya import edilmesini sağlar-->
+                <router-view name="header-bottom"></router-view>
             </div>
         </div>
 
@@ -14,12 +13,11 @@
 </template>
 
 <script>
-    import Header from "./components/Header";
 
 
     export default {
-        components:{
-            appHeader : Header
+        components: {
+
         }
     }
 </script>
