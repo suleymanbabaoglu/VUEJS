@@ -7,6 +7,8 @@
         <h4>LOCATION: {{$route.query.location}}</h4>
         <hr>
 
+        <div style="height: 800px"></div>
+        <p id="data">BURADA BENİM GELECEK BAZI BİLGİLERİM OLABİLİR</p>
 
     </div>
 </template>

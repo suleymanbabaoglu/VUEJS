@@ -10,7 +10,7 @@
         </p>
         <hr>
 
-        <router-link tag="button" :to="{name: 'userEdit',params:{id: $route.params.id}, query:{name:'Suleyman', lastName: 'Babaoglu', age: '26', location: 'Bursa'}}" class="btn btn-primary">User
+        <router-link tag="button" :to="navigationLink" class="btn btn-primary">User
             Edit
         </router-link>
 
@@ -20,7 +20,30 @@
 
 <script>
     export default {
-        name: "UserDetail"
+        data() {
+            return {
+                navigationLink:
+                    {
+                        name: 'userEdit',
+                        params:
+                            {
+                                id: this.$route.params.id
+                            },
+                        query:
+                            {
+                                name: 'Suleyman',
+                                lastName: 'Babaoglu',
+                                age: '26',
+                                location: 'Bursa'
+                            },
+                        hash: '#data'
+                    }
+            }
+        },
+        beforeRouteEnter(to, from, next) {
+           // COMPONENT BAZINDA KONTROL
+            next(true);
+        }
     }
 </script>
 

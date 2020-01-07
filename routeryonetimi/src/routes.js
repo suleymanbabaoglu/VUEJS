@@ -16,11 +16,16 @@ export const routes = [
         path: '/user', name: 'kullanicilar',
         components: {
             default: User,
-            'header-bottom': Header
+            'header-top': Header
         }, children: [
             {path: '/', component: UserStart},
             {path: 'edit/:id', component: UserEdit, name: "userEdit"},
-            {path: ':id', component: UserDetail},
+            {
+                path: ':id', component: UserDetail, beforeEnter: (to, from, next) => {
+                    //Route Bazında Kontrol
+                    next();
+                }
+            },
         ]
     }
 ];

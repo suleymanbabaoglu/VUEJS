@@ -5,7 +5,7 @@
                 <br>
                 <router-view name="header-top"></router-view>
                 <router-view></router-view>  <!--Routerdaki sayfaların buraya import edilmesini sağlar-->
-                <router-view name="header-bottom"></router-view>
+
             </div>
         </div>
 
