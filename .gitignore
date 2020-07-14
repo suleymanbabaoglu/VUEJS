@@ -4,3 +4,4 @@
 *.xml
 *.code-workspace
 *.iml
+node_modules/*

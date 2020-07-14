@@ -18,10 +18,15 @@ const router = new VueRouter({
     }
 });
 
-router.beforeEach((to, from, next) => {
-    //GLOBAL OLARAK KONTROL
-    next();//içerisine route, true/false değerleri alabilir. True izin verir, false engelleme yapar.Konulmazsa erişim sağlanamaz.
-});
+// router.beforeEach((to, from, next) => {
+//     //GLOBAL OLARAK ROUTE
+//     if (this.$store.getters.isAuthenticated) {
+//         next(); //içerisine route, true/false değerleri alabilir. True izin verir, false engelleme yapar.Konulmazsa erişim sağlanamaz.
+//     } else {
+//         next("/auth");
+//     }
+    
+// });
 new Vue({
     router,
     render: h => h(App),

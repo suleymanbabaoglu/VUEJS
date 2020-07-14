@@ -10,8 +10,8 @@
           transition="scale-transition"
           width="40"
         />
-
-        <v-img
+    
+          <v-img
           alt="Vuetify Name"
           class="shrink mt-1 hidden-sm-and-down"
           contain
@@ -19,7 +19,8 @@
           src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
           width="100"
         />
-      </div>
+      
+      </div>    
 
       <v-spacer></v-spacer>
     </v-app-bar>
@@ -45,7 +46,7 @@ export default {
   },
 
   data: () => ({
-    //
+    data: 123,
   })
 };
 </script>
